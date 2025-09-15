@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.db
+
+# Virtual environments
+venv/
+.env/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# VSCode
+.vscode/
+
+# macOS / Windows system files
+.DS_Store
+Thumbs.db
+
+# Node / React
+node_modules/
+build/
+dist/
+.npm/
+
+# Android/Java
+*.keystore
+*.jks
+.gradle/
+build/
+
+# Logs
+*.log
