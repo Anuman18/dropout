@@ -31,6 +31,13 @@ def _final_feature_names(preprocessor, X: pd.DataFrame) -> list[str]:
 	return num_features + cat_feature_names
 
 
+def _to_scalar(x: object) -> float:
+	arr = np.asarray(x)
+	if arr.ndim == 0:
+		return float(arr)
+	return float(arr.ravel().sum())
+
+
 def local_explanations(records: List[Dict]) -> List[Dict]:
 	preprocessor = joblib.load(PREPROCESSOR_FILE)
 	model = joblib.load(MODEL_FILE)
@@ -62,10 +69,10 @@ def local_explanations(records: List[Dict]) -> List[Dict]:
 	outputs: List[Dict] = []
 	for i in range(X_trans.shape[0]):
 		pairs = list(zip(feature_names, values[i]))
-		pairs.sort(key=lambda x: abs(x[1]), reverse=True)
-		top5 = [{"feature": k, "contribution": float(v)} for k, v in pairs[:5]]
+		pairs.sort(key=lambda x: abs(_to_scalar(x[1])), reverse=True)
+		top5 = [{"feature": k, "contribution": _to_scalar(v)} for k, v in pairs[:5]]
 		outputs.append({
-			"base_value": float(base_value),
+			"base_value": float(_to_scalar(base_value)),
 			"top_features": top5,
 		})
 	return outputs
@@ -120,7 +127,8 @@ def get_explanation(input_data: Dict[str, Optional[float]], top_n: int = 5) -> D
 	aggregated: Dict[str, float] = {}
 	for name, v in zip(feature_names, vals):
 		base = name.split("_")[0] if "_" in name else name
-		aggregated[base] = aggregated.get(base, 0.0) + float(v)
+		s = _to_scalar(v)
+		aggregated[base] = aggregated.get(base, 0.0) + s
 
 	# Normalize to percentage contributions by absolute value
 	abs_sum = sum(abs(v) for v in aggregated.values()) or 1.0
