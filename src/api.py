@@ -27,7 +27,7 @@ from .config import (
 )
 from .data_pipeline import init_db, log_prediction, store_new_data, get_current_model_status
 from .data import append_students, load_students
-from .explain import load_global_importance, local_explanations
+from .explain import load_global_importance, local_explanations, get_explanation
 from .predict import Predictor, batch_predict
 # Optional scheduler import
 try:
@@ -90,6 +90,16 @@ async def startup_event() -> None:
 		app.state.predictor = Predictor()
 	else:
 		app.state.predictor = None
+
+
+@app.post("/explain")
+async def explain_endpoint(record: StudentRecord) -> Dict[str, Any]:
+	try:
+		data = {k: v for k, v in record.model_dump().items()}
+		result = get_explanation(data, top_n=5)
+		return result
+	except Exception as e:
+		raise HTTPException(status_code=500, detail=str(e))
 
 
 @app.post("/predict")
