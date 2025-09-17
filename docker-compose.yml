@@ -1,0 +1,31 @@
+version: "3.9"
+services:
+  api:
+    build: .
+    container_name: dropout_api
+    ports:
+      - "8000:8000"
+    environment:
+      - DB_URL=${DB_URL:-sqlite:////app/data/app.db}
+      - NEW_DATA_THRESHOLD=${NEW_DATA_THRESHOLD:-500}
+    volumes:
+      - ./data:/app/data
+      - ./models:/app/models
+      - ./logs:/app/logs
+    command: uvicorn src.api:app --host 0.0.0.0 --port 8000
+
+  postgres:
+    image: postgres:15
+    container_name: dropout_db
+    restart: unless-stopped
+    environment:
+      - POSTGRES_USER=dropout
+      - POSTGRES_PASSWORD=dropout
+      - POSTGRES_DB=dropout
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:

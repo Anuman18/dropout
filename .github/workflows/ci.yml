@@ -1,0 +1,40 @@
+name: ci
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install deps
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Generate demo data
+        run: |
+          python -m src.generate_dataset --rows 1000 --out data/students.csv
+
+      - name: Train model
+        run: |
+          python -m src.train_model --data data/students.csv
+
+      - name: Import API module
+        run: |
+          python - <<'PY'
+          import importlib
+          importlib.import_module('src.api')
+          print('API module import OK')
+          PY
