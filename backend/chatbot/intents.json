@@ -1,0 +1,176 @@
+{
+	"intents": [
+		{
+			"tag": "greeting",
+			"patterns": ["hi", "hello", "hey", "good morning", "good afternoon", "good evening", "namaste", "bonjour", "hola"],
+			"responses": [
+				"Hello! How can I support your class today?",
+				"Hi there! Need help reviewing any students' risk or interventions?",
+				"Namaste! How can I help you support your learners today?"
+			]
+		},
+		{
+			"tag": "farewell",
+			"patterns": ["bye", "goodbye", "see you", "thanks", "thank you", "shukriya", "dhanyavaad"],
+			"responses": [
+				"You're welcome! I'm here whenever you need support.",
+				"Goodbye! Wishing you and your students a great day.",
+				"Take care! Reach out anytime for strategies or insights."
+			]
+		},
+		{
+			"tag": "risk_high",
+			"patterns": ["high risk", "student at risk", "red risk", "serious dropout", "severe risk", "very high risk"],
+			"responses": [
+				"This student appears at high risk of dropout. Consider: scheduling extra one-on-one sessions, contacting guardians to build a support plan, monitoring attendance weekly, connecting them with counseling resources, and removing logistical barriers (transport, materials)."
+			]
+		},
+		{
+			"tag": "risk_medium",
+			"patterns": ["medium risk", "yellow risk", "borderline", "unsure risk", "could drop out"],
+			"responses": [
+				"This student has moderate risk. Preventive steps: short weekly check-ins, set clear goals, celebrate small improvements, proactively address attendance or transport barriers, and involve parents early."
+			]
+		},
+		{
+			"tag": "risk_low",
+			"patterns": ["low risk", "green risk", "safe", "doing fine", "stable"],
+			"responses": [
+				"This student looks low risk. Keep motivation high: acknowledge progress, maintain regular parent communication, and ensure access to study materials and a predictable study routine."
+			]
+		},
+		{
+			"tag": "attendance_issues",
+			"patterns": ["low attendance", "absent a lot", "skipping classes", "attendance problem", "not coming to school", "irregular"],
+			"responses": [
+				"Steps for attendance: call home to understand reasons, align with parents on a daily routine, offer catch-up notes, pair with a buddy for missed work, and track attendance weekly with positive reinforcement for improvements."
+			]
+		},
+		{
+			"tag": "low_marks",
+			"patterns": ["low marks", "failing tests", "poor grades", "low performance", "weak in exams"],
+			"responses": [
+				"Academic support: diagnose topic gaps with a short quiz, plan 2–3 targeted one-on-one sessions, share structured notes, assign practice with quick feedback, and celebrate small gains to build confidence."
+			]
+		},
+		{
+			"tag": "parent_involvement",
+			"patterns": ["talk to parents", "parent engagement", "family meeting", "involve guardians", "PTM"],
+			"responses": [
+				"Parent engagement: schedule a friendly call/meeting, agree on 1–2 concrete home actions (study time, morning routine), share a weekly update, and provide helplines for transport/books assistance if needed."
+			]
+		},
+		{
+			"tag": "transport_barrier",
+			"patterns": ["transport problem", "bus issue", "long distance", "difficulty reaching school", "no transport"],
+			"responses": [
+				"Transport support: explore school/cluster transport options, arrange a peer commute group, adjust first-period expectations while stabilizing attendance, and escalate to administration for local solutions."
+			]
+		},
+		{
+			"tag": "counseling_support",
+			"patterns": ["stress", "anxiety", "mental health", "counselor", "depressed", "needs counseling"],
+			"responses": [
+				"Well-being: refer to the school counselor, normalize asking for help, provide a calm space and check-in routine, reduce workload temporarily if needed, and connect with community mental health resources."
+			]
+		},
+		{
+			"tag": "scholarship_help",
+			"patterns": ["scholarship", "financial help", "fee support", "money issue", "cannot afford"],
+			"responses": [
+				"Financial aid: guide the family on scholarship/fee waivers, confirm eligibility documents, liaise with the headteacher for urgent cases, and ensure the student has essential materials while paperwork is processed."
+			]
+		},
+		{
+			"tag": "language_medium",
+			"patterns": ["language barrier", "english medium challenge", "hindi medium issue", "translation help"],
+			"responses": [
+				"Language support: provide bilingual notes/glossaries, allow answers in the comfortable language while learning new terms, buddy with a peer strong in the language, and use visuals for key concepts."
+			]
+		},
+		{
+			"tag": "facilities_issue",
+			"patterns": ["no toilet", "no electricity", "no internet", "poor facilities", "library issue"],
+			"responses": [
+				"Facilities workaround: schedule labs/charging times, provide printed materials when internet is low, escalate sanitation issues to administration, and coordinate a materials kit for the student."
+			]
+		},
+		{
+			"tag": "teacher_strategies",
+			"patterns": ["teaching strategies", "classroom tips", "how to engage", "improve participation", "active learning"],
+			"responses": [
+				"Engagement: use short tasks, cold/warm calling, pair-share, quick quizzes, rotate roles, and end with exit tickets to spot misconceptions early."
+			]
+		},
+		{
+			"tag": "exam_preparation",
+			"patterns": ["exam prep", "test preparation", "board exams", "how to study for exam"],
+			"responses": [
+				"Exam plan: share a week-wise checklist, run 20-minute revision blocks with practice questions, give model answers, and host a doubt-clearing circle before the test."
+			]
+		},
+		{
+			"tag": "holiday_routine",
+			"patterns": ["vacation study", "holiday routine", "break schedule", "festival time"],
+			"responses": [
+				"Holiday routine: set a light daily plan (30–45 mins), give a small project, share reading lists, and schedule a check-in after the break to keep momentum."
+			]
+		},
+		{
+			"tag": "health_concerns",
+			"patterns": ["health issue", "sick student", "medical problem", "nutrition"],
+			"responses": [
+				"Health support: coordinate with parents for rest and care, share missed work in manageable chunks, verify mid-day meal access, and consider workload adjustments until recovery."
+			]
+		},
+		{
+			"tag": "bullying_safety",
+			"patterns": ["bullying", "harassment", "safety issue", "unsafe"],
+			"responses": [
+				"Safety first: document incident, inform school authorities per policy, ensure the student has a safe contact point, monitor seating/peers, and involve parents with a clear action plan."
+			]
+		},
+		{
+			"tag": "midday_meal",
+			"patterns": ["midday meal", "mdm", "lunch problem", "food issue"],
+			"responses": [
+				"Mid-Day Meal: check roster and availability, report supply issues to administration, and ensure the student is not missing meals—nutrition supports attention and attendance."
+			]
+		},
+		{
+			"tag": "device_internet",
+			"patterns": ["no device", "no phone", "no internet at home", "data issue"],
+			"responses": [
+				"Access: pair with a peer for digital tasks, provide printed alternatives, schedule school lab time, and explore community centers offering internet access."
+			]
+		},
+		{
+			"tag": "homework_compliance",
+			"patterns": ["not doing homework", "missing assignments", "homework issue", "late submission"],
+			"responses": [
+				"Assignments: break tasks into smaller parts with checkpoints, add choice-based assignments, use a tracker with positive points, and call home if 2+ tasks are missed."
+			]
+		},
+		{
+			"tag": "early_warning",
+			"patterns": ["early warning", "how to detect risk", "signs of dropout", "red flags"],
+			"responses": [
+				"Watch for: 3+ absences in a month, sudden drop in marks, withdrawal in class, repeated missing work, or comments about leaving. Act early with a friendly check-in and parent call."
+			]
+		},
+		{
+			"tag": "referrals",
+			"patterns": ["refer to counselor", "refer to ngo", "community help", "who can help"],
+			"responses": [
+				"Referrals: school counselor, local NGOs for transport/books, health centers for wellness, and district helplines for scholarships or emergency support."
+			]
+		},
+		{
+			"tag": "advice_general",
+			"patterns": ["advice", "suggestions", "how to reduce dropout", "what can I do", "improve retention", "keep students"],
+			"responses": [
+				"School-wide tips: track attendance trends weekly, identify transport/financial barriers early, involve parents, enable peer study groups, run mentoring circles, and coordinate support with counselors and community programs."
+			]
+		}
+	]
+}
